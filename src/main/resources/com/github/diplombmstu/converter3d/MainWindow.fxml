@@ -13,14 +13,14 @@
               <HBox alignment="CENTER" layoutX="74.0" layoutY="70.0" prefHeight="25.0" prefWidth="244.0" style="-fx-spacing: 10;">
                   <children>
                       <Label text="Исходное изображение: " />
-                      <TextField fx:id="inputImageTextField" text="C:\Projects\Java\3d-converter\res\test_image.bmp" />
+                      <TextField fx:id="inputImageTextField" />
                       <Button fx:id="selectImageButton" mnemonicParsing="false" onMouseClicked="#selectImage" text="..." />
                   </children>
               </HBox>
               <HBox alignment="CENTER" layoutX="74.0" layoutY="108.0" prefHeight="25.0" prefWidth="244.0" style="-fx-spacing: 10;">
                   <children>
                       <Label text="Карта глубины: " />
-                      <TextField fx:id="depthMapTextField" text="C:\Projects\Java\3d-converter\res\test_depth_map.bmp" />
+                      <TextField fx:id="depthMapTextField" />
                       <Button fx:id="selectDepthMapButton" mnemonicParsing="false" onMouseClicked="#selectDepthMap" text="..." />
                   </children>
               </HBox>
