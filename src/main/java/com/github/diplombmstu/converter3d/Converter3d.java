@@ -15,9 +15,9 @@ import java.util.stream.Collectors;
  */
 public class Converter3d
 {
-
-    private static final int MAX_DEPTH_VALUE = 255;
-    private static final int MAX_SHIFT = 70;
+    private static final double b = 6.7;
+    private static final double Wsm = 50;
+    private static final double Wpx = 1920;
 
     public void convert(Path input, Path depthMap, Path leftEye, Path rightEye) throws Exception
     {
@@ -60,15 +60,15 @@ public class Converter3d
         int i = coordinates.getKey();
         int j = coordinates.getValue();
 
-        double depthRed = new Color(depthMapImage.getRGB(i, j)).getRed();
+        double L = new Color(depthMapImage.getRGB(i, j)).getRed();
+
+        double Psm = b * (1 - L / 127.5);
+        double Ppx = Wsm / Wpx / Psm;
+
+        int lx = (int) (i + Ppx / 2);
+        int rx = (int) (i - Ppx / 2);
 
         int inputColor = inputImage.getRGB(i, j);
-        double depthValue = depthRed / MAX_DEPTH_VALUE;
-
-        int di = (int) (depthValue * MAX_SHIFT);
-
-        int lx = i + di;
-        int rx = i - di;
 
         if (lx < inputWidth)
         {
