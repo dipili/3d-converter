@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  */
 public class Converter3d
 {
-    private static final double b = 6.7;
+    private static final double b = 6.8;
     private static final double Wsm = 50;
     private static final double Wpx = 1920;
 
